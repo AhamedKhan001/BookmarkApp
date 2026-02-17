@@ -1,0 +1,12 @@
+import { createClient } from '@supabase/supabase-js';
+
+// Use ! to tell TypeScript these variables will definitely exist 
+// (provided you set them in Vercel/env)
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+
+if (!supabaseUrl || !supabaseAnonKey) {
+  console.error("Supabase environment variables are missing!");
+}
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
